@@ -1,0 +1,73 @@
+import 'dart:ffi';
+
+void main() {
+  print('Hello world!');
+  sum(25,35,45);
+  showPerson("Tom", 35);
+  showPerson("Alice", 29);
+  showPerson1("Javokhir", 23);
+  showPerson1("Madina");
+
+
+  SoliqServis toshkentTumani = SoliqServis();
+  toshkentTumani.workersSalary = 5500000;
+  toshkentTumani.department = "Tadbirkorlar bilan ishlash bo'limi ";
+  toshkentTumani.getDoubleSalary(5500000);
+  DasturiyBolim dasturiyBolim = DasturiyBolim();
+  dasturiyBolim.department = "Dasturiy mahsullar bilan ishlash va biznes jarayonlarini raqamlashtirish";
+  dasturiyBolim.workerName = "Majidov Javokhir";
+  dasturiyBolim.workerProfession = "Mobil Dasturchi";
+  dasturiyBolim.workers = 7;
+  dasturiyBolim.workersSalary = 10000000;
+  dasturiyBolim.getSalary = 9000000;
+  dasturiyBolim.getDoubleSalary(9000000);
+
+  CallMarkaz callMarkaz = CallMarkaz();
+  callMarkaz.workers = 30;
+  callMarkaz.department = "Davlat soliq xizmatining yagona axborot-maslahat Call-markazi";
+  callMarkaz.workersSalary = 7000000;
+  callMarkaz.getDoubleSalary(7000000);
+
+}
+// обязательные параметры
+void sum(int a, int b, int c){
+  int d = a + b + c;
+  print(d);
+}
+void showPerson(String name, int age){
+  print("Name: $name");
+  print("Age: $age \n");
+}
+
+// необязательные параметры
+
+// age parametri neobizatelni
+
+void showPerson1(String name, [int age = 22]){
+  print("Name: $name");
+  print("Age: $age \n");
+}
+
+
+class SoliqServis {
+  String department = "";
+  int workers = 0;
+  double workersSalary = 0;
+   getDoubleSalary(double allSalary) {
+  allSalary =  workersSalary + 5000000 ;
+   return allSalary;
+  }
+}
+class DasturiyBolim extends SoliqServis {
+   String workerName = "";
+   String workerProfession = "";
+  String department = "Dasturiy mahsullar bilan ishlash va biznes jarayonlarini raqamlashtirish";
+   int workers = 7;
+  double getSalary = 10000000.34;
+}
+
+class CallMarkaz extends SoliqServis {
+   String department = "Call Markaz bo'limi ";
+   int workers = 25;
+   double workersSalary = 13000000;
+}
