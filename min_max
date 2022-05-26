@@ -1,0 +1,20 @@
+void task1() {
+  print('Введите X:');
+  var x = int.parse(stdin.readLineSync() ?? '0');
+  print('Введите Y:');
+  var y = int.parse(stdin.readLineSync() ?? '0');
+  print('Результат X + Y = ${x + y}');
+
+  var given_list = [122, 12, 33, 14, 5, 555];
+  var largest_value = given_list[0];
+  var smallest_value = given_list[0];
+
+  given_list.forEach((e) => {
+    if (e > largest_value) {largest_value = e},
+    if (e < smallest_value) {smallest_value = e},
+  });
+
+  print("Listdagi eng kichkina son : ${smallest_value}");
+  print("Listdagi eng katta son : ${largest_value}");
+  
+}
